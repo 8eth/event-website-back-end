@@ -20,4 +20,15 @@ class ApplicationController < Sinatra::Base
     Guest.where(name: params['name']).to_json
   end
 
+  patch "/guests/:id" do
+    guest = Guest.find(params['id'])
+    guest.update(attending: params['attending'])
+    guest.reload
+    guest.to_json
+  end
+
+  get '/pictures' do
+    guests = Picture.all
+    guests.to_json
+  end
 end
