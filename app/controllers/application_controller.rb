@@ -28,7 +28,16 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/pictures' do
-    guests = Picture.all
-    guests.to_json
+    pictures = Picture.all
+    pictures.to_json
+  end
+
+  post '/pictures' do
+    picture = Picture.create(
+      caption: params[:caption],
+      img_link: params[:img_link],
+      party_id: params[:party_id]
+    )
+    picture.to_json
   end
 end
