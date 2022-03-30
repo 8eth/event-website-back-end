@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 2022_03_29_021824) do
 
   create_table "parties", force: :cascade do |t|
     t.string "event_name"
+    t.string "event_host"
+    t.string "event_date"
+    t.string "event_address"
+    t.string "short_message"
   end
 
   create_table "pictures", force: :cascade do |t|
